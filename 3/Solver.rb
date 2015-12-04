@@ -17,7 +17,7 @@ input.split("").each do |f|
     elsif f == 'v'
       current_move[1] -= 1
     end
-	result.add(current_move[0].to_s + '-' + current_move[1].to_s)
+    result.add(current_move[0].to_s + '-' + current_move[1].to_s)
     robosanta_move = !robosanta_move
 end
 
