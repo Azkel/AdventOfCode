@@ -1,48 +1,23 @@
+#!/usr/bin/env ruby
 input = File.read("input.txt")
-
-x = 0
-x1 = 0
-y = 0
-y1 = 0
-result = {}
-result[x.to_s + '-' + y.to_s] = 1
-roboSanta = false
+santa_position  = [0,0]
+robosanta_position = [0, 0]
+result = { 0.to_s + '-' + 0.to_s => 1}
+robosanta_move = false
 input.split("").each do |f|
-  if roboSanta
+    current_move = (robosanta_move ? robosanta_position : santa_position)
     if f == '^'
-      y += 1  
+      current_move[1] += 1  
     elsif f == '>'
-      x += 1
+      current_move[0] += 1
     elsif f == '<'
-      x -= 1
+      current_move[0] -= 1
     elsif f == 'v'
-      y -= 1
+      current_move[1] -= 1
     end
-    key = x.to_s + '-' + y.to_s
-    if result.has_key?(key)
-      result[key] +=1
-    else
-      result[key] = 1
-    end
-    roboSanta = false
-  else
-    if f == '^'
-      y1 += 1  
-    elsif f == '>'
-      x1 += 1
-    elsif f == '<'
-      x1 -= 1
-    elsif f == 'v'
-      y1 -= 1
-    end
-    key = x1.to_s + '-' + y1.to_s
-    if result.has_key?(key)
-      result[key] +=1
-    else
-      result[key] = 1
-    end
-    roboSanta = true
-  end
+    key = current_move[0].to_s + '-' + current_move[1].to_s
+    result[key] = result.has_key?(key) ? result[key]+1 : 1
+    robosanta_move = !robosanta_move
 end
 
 puts result.select { |k,v| v > 0 }.count
