@@ -1,4 +1,4 @@
-# Day 4: The Ideal Stocking Stuffer ---
+# Day 4: The Ideal Stocking Stuffer
 
 ##  Part 1
 Santa needs help mining some AdventCoins (very similar to bitcoins) to use as gifts for all the economically forward-thinking little girls and boys.
@@ -13,3 +13,6 @@ For example:
 ## Part 2
 
 Now find one that starts with six zeroes.
+
+## Input
+My input: yzbqklnj

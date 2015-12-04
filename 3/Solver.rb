@@ -3,7 +3,8 @@
 input = File.read("input.txt")
 santa_position  = [0,0]
 robosanta_position = [0, 0]
-result = { 0.to_s + '-' + 0.to_s => 1}
+require 'set'
+result = Set.new
 robosanta_move = false
 input.split("").each do |f|
     current_move = (robosanta_move ? robosanta_position : santa_position)
@@ -16,9 +17,8 @@ input.split("").each do |f|
     elsif f == 'v'
       current_move[1] -= 1
     end
-    key = current_move[0].to_s + '-' + current_move[1].to_s
-    result[key] = result.has_key?(key) ? result[key]+1 : 1
+	result.add(current_move[0].to_s + '-' + current_move[1].to_s)
     robosanta_move = !robosanta_move
 end
 
-puts result.select { |k,v| v > 0 }.count
+puts result.length()
