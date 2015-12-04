@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+
 input = File.read("input.txt")
 santa_position  = [0,0]
 robosanta_position = [0, 0]

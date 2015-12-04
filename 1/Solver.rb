@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 test = File.read('input.txt')
 result = 0
 basement_floor = 0

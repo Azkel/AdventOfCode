@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 result = [0,0]
 File.open('input.txt', 'r').each_line do |line|
     values = line.split('x').map { |a| a.to_i}.sort
