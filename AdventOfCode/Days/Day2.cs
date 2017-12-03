@@ -9,15 +9,15 @@ namespace AdventOfCode.Days
 {
     public class Day2 : AbstractDay
     {
-        string filePath = "../../Inputs/Day2.txt";
+        public string FilePath = "../../Inputs/Day2.txt";
 
 
-        protected override string GetResultFirst()
+        protected override int GetResultFirst()
         {
             int sum = 0;
             try
             {
-                using (StreamReader sr = new StreamReader(filePath))
+                using (StreamReader sr = new StreamReader(FilePath))
                 {
                     string currentLine = "";
                     while((currentLine = sr.ReadLine()) != null)
@@ -26,7 +26,7 @@ namespace AdventOfCode.Days
                         sum += array.Max() - array.Min();
                     }
                 }
-                return sum.ToString();
+                return sum;
             }
             catch (Exception e)
             {
@@ -35,12 +35,12 @@ namespace AdventOfCode.Days
             }
         }
 
-        protected override string GetResultSecond()
+        protected override int GetResultSecond()
         {
             int sum = 0;
             try
             {
-                using (StreamReader sr = new StreamReader(filePath))
+                using (StreamReader sr = new StreamReader(FilePath))
                 {
                     string currentLine = "";
                     while ((currentLine = sr.ReadLine()) != null)
@@ -58,7 +58,7 @@ namespace AdventOfCode.Days
                         }
                     }
                 }
-                return sum.ToString();
+                return sum;
             }
             catch (Exception e)
             {

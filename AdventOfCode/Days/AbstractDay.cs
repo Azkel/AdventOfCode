@@ -10,7 +10,7 @@ namespace AdventOfCode.Days
     public abstract class AbstractDay
     {
 
-        public string GetResult(TaskNumber number)
+        public int GetResult(TaskNumber number)
         {
 
             switch (number)
@@ -23,13 +23,15 @@ namespace AdventOfCode.Days
                     {
                         return GetResultSecond();
                     }
+                default:
+                    throw new Exception("This code should be unreachable");
             }
-            return string.Empty;
+
         }
 
-        protected abstract string GetResultSecond();
+        protected abstract int GetResultSecond();
 
-        protected abstract string GetResultFirst();
+        protected abstract int GetResultFirst();
 
 
     }
