@@ -51,6 +51,7 @@
     <Compile Include="Days\Day2.cs" />
     <Compile Include="Days\AbstractDay.cs" />
     <Compile Include="Days\Day3.cs" />
+    <Compile Include="Days\Day4.cs" />
     <Compile Include="Enums\TaskNumber.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Inputs\Day2.txt" />
+    <Content Include="Inputs\Day4.txt" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
