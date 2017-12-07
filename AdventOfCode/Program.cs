@@ -8,7 +8,7 @@ namespace AdventOfCode
     {
         static void Main(string[] args)
         {
-            AbstractDay day = new Day6();
+            AbstractDay day = new Day7();
             Console.WriteLine("Day 1st result: {0}", day.GetResult(TaskNumber.First));
             Console.WriteLine("Day 2nd result: {0}", day.GetResult(TaskNumber.Second));
             Console.ReadLine();

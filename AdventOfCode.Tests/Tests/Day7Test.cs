@@ -5,15 +5,15 @@ using System;
 namespace AdventOfCode.Tests.Tests
 {
     [TestFixture]
-    public class Day2Test
+    public class Day7Test
     {
         [Test]
-        public void Day2_FirstTask()
+        public void Day7_FirstTask()
         {
             // Arrange
-            Day2 day = new Day2();
-            day.FilePath = AppDomain.CurrentDomain.BaseDirectory + @"..\..\TestInputs\Day2FirstExample.txt";
-            string expectedResult = "18";
+            Day7 day = new Day7();
+            day.FilePath = AppDomain.CurrentDomain.BaseDirectory + @"..\..\TestInputs\Day7FirstExample.txt";
+            string expectedResult = "tknk";
 
             // Act
             var result = day.GetResult(Enums.TaskNumber.First);
@@ -23,12 +23,12 @@ namespace AdventOfCode.Tests.Tests
         }
 
         [Test]
-        public void Day2_SecondTask()
+        public void Day7_SecondTask()
         {
             // Arrange
-            Day2 day = new Day2();
-            day.FilePath = AppDomain.CurrentDomain.BaseDirectory + @"../../TestInputs/Day2SecondExample.txt";
-            string expectedResult = "9";
+            Day7 day = new Day7();
+            day.FilePath = AppDomain.CurrentDomain.BaseDirectory + @"../../TestInputs/Day7FirstExample.txt";
+            string expectedResult = "60";
 
             // Act
             var result = day.GetResult(Enums.TaskNumber.Second);

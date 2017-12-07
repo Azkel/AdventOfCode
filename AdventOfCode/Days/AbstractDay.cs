@@ -1,16 +1,12 @@
 ﻿using AdventOfCode.Enums;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Days
 {
     public abstract class AbstractDay
     {
 
-        public int GetResult(TaskNumber number)
+        public string GetResult(TaskNumber number)
         {
 
             switch (number)
@@ -29,9 +25,9 @@ namespace AdventOfCode.Days
 
         }
 
-        protected abstract int GetResultSecond();
+        protected abstract string GetResultSecond();
 
-        protected abstract int GetResultFirst();
+        protected abstract string GetResultFirst();
 
 
     }

@@ -12,7 +12,7 @@ namespace AdventOfCode.Tests.Tests
             // Arrange
             Day6 day = new Day6();
             day.InputString = "0	2	7	0";
-            int expectedResult = 5;
+            string expectedResult = "5";
 
             // Act
             var result = day.GetResult(Enums.TaskNumber.First);
@@ -27,7 +27,7 @@ namespace AdventOfCode.Tests.Tests
             // Arrange
             Day6 day = new Day6();
             day.InputString = "0	2	7	0";
-            int expectedResult = 4;
+            string expectedResult = "4";
 
             // Act
             var result = day.GetResult(Enums.TaskNumber.Second);

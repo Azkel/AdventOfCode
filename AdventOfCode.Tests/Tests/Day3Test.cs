@@ -1,10 +1,5 @@
 ﻿using AdventOfCode.Days;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Tests.Tests
 {
@@ -17,7 +12,7 @@ namespace AdventOfCode.Tests.Tests
             // Arrange
             Day3 day = new Day3();
             day.Input = 1;
-            int expectedResult = 0;
+            string expectedResult = "0";
 
             // Act
             var result = day.GetResult(Enums.TaskNumber.First);
@@ -32,7 +27,7 @@ namespace AdventOfCode.Tests.Tests
             // Arrange
             Day3 day = new Day3();
             day.Input = 12;
-            int expectedResult = 3;
+            string expectedResult = "3";
 
             // Act
             var result = day.GetResult(Enums.TaskNumber.First);
@@ -47,7 +42,7 @@ namespace AdventOfCode.Tests.Tests
             // Arrange
             Day3 day = new Day3();
             day.Input = 23;
-            int expectedResult = 2;
+            string expectedResult = "2";
 
             // Act
             var result = day.GetResult(Enums.TaskNumber.First);
@@ -62,7 +57,7 @@ namespace AdventOfCode.Tests.Tests
             // Arrange
             Day3 day = new Day3();
             day.Input = 1024;
-            int expectedResult = 31;
+            string expectedResult = "31";
 
             // Act
             var result = day.GetResult(Enums.TaskNumber.First);
@@ -77,7 +72,7 @@ namespace AdventOfCode.Tests.Tests
             // Arrange
             Day3 day = new Day3();
             day.Input = 4;
-            int expectedResult = 5;
+            string expectedResult = "5";
 
             // Act
             var result = day.GetResult(Enums.TaskNumber.Second);
@@ -92,7 +87,7 @@ namespace AdventOfCode.Tests.Tests
             // Arrange
             Day3 day = new Day3();
             day.Input = 25;
-            int expectedResult = 26;
+            string expectedResult = "26";
 
             // Act
             var result = day.GetResult(Enums.TaskNumber.Second);
@@ -107,7 +102,7 @@ namespace AdventOfCode.Tests.Tests
             // Arrange
             Day3 day = new Day3();
             day.Input = 147;
-            int expectedResult = 304;
+            string expectedResult = "304";
 
             // Act
             var result = day.GetResult(Enums.TaskNumber.Second);

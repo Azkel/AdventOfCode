@@ -1,9 +1,6 @@
-﻿using AdventOfCode.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Days
 {
@@ -12,7 +9,7 @@ namespace AdventOfCode.Days
         public string InputString = "11	11	13	7	0	15	5	5	4	4	1	1	7	1	15	11";
 
 
-        protected override int GetResultSecond()
+        protected override string GetResultSecond()
         {
             var numbers = InputString.Split('	').Select(x => Int32.Parse(x.ToString())).ToArray();
             int result = 0;
@@ -47,10 +44,10 @@ namespace AdventOfCode.Days
                     }
                 }
             }
-            return result;
+            return result.ToString();
         }
 
-        protected override int GetResultFirst()
+        protected override string GetResultFirst()
         {
             var numbers = InputString.Split('	').Select(x => Int32.Parse(x.ToString())).ToArray();
             int numberOfSteps = 0;
@@ -73,7 +70,7 @@ namespace AdventOfCode.Days
                 addedSuccesful = alreadyExistingValues.Add(string.Join(";", numbers));
                 numberOfSteps++;
             }
-            return numberOfSteps;
+            return numberOfSteps.ToString();
         }
     }
 }

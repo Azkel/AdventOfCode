@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Days
 {
@@ -12,7 +10,7 @@ namespace AdventOfCode.Days
         public string FilePath = "../../Inputs/Day5.txt";
 
 
-        protected override int GetResultFirst()
+        protected override string GetResultFirst()
         {
             int sum = 0;
             List<int> listOfValues = new List<int>();
@@ -34,7 +32,7 @@ namespace AdventOfCode.Days
                     values[currentIndex]++;
                     currentIndex += (values[currentIndex] - 1);
                 }
-                return jumpCount;
+                return jumpCount.ToString();
             }
             catch (Exception e)
             {
@@ -43,7 +41,7 @@ namespace AdventOfCode.Days
             }
         }
 
-        protected override int GetResultSecond()
+        protected override string GetResultSecond()
         {
                       int sum = 0;
             List<int> listOfValues = new List<int>();
@@ -75,7 +73,7 @@ namespace AdventOfCode.Days
                     }
                     currentIndex += (values[currentIndex] + offset);
                 }
-                return jumpCount;
+                return jumpCount.ToString();
             }
             catch (Exception e)
             {

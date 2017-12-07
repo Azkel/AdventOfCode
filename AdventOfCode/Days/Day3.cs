@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Days
 {
@@ -17,7 +15,7 @@ namespace AdventOfCode.Days
 
         public int Input = 347991;
 
-        protected override int GetResultFirst()
+        protected override string GetResultFirst()
         {
             int y = 0, x = 0, currentValue = 1, step = 1, currentStepValue = 0;
             Direction currentDirection = Direction.Right;
@@ -27,10 +25,10 @@ namespace AdventOfCode.Days
                 Move(ref currentStepValue, ref currentDirection, ref x, ref y, ref step);
 
             }
-            return Math.Abs(x) + Math.Abs(y);
+            return (Math.Abs(x) + Math.Abs(y)).ToString();
         }
 
-        protected override int GetResultSecond()
+        protected override string GetResultSecond()
         {
             List<Tuple<int, int, int>> currentValues = new List<Tuple<int, int, int>>
             {
@@ -50,7 +48,7 @@ namespace AdventOfCode.Days
                 Move(ref currentStepValue, ref currentDirection, ref x, ref y, ref step);
                 currentValue = currentValues.Where(z => (Math.Abs(z.Item2 - x) <= 1 && Math.Abs(z.Item3 - y) <= 1)).Select(z => z.Item1).Sum();
             }
-            return currentValue;
+            return currentValue.ToString();
         }
 
         private void Move(ref int currentStepValue, ref Direction currentDirection, ref int x, ref int y, ref int step)

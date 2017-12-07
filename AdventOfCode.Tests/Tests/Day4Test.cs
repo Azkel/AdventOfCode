@@ -13,7 +13,7 @@ namespace AdventOfCode.Tests.Tests
             // Arrange
             Day4 day = new Day4();
             day.FilePath = AppDomain.CurrentDomain.BaseDirectory + @"..\..\TestInputs\Day4FirstExample.txt";
-            int expectedResult = 2;
+            string expectedResult = "2";
 
             // Act
             var result = day.GetResult(Enums.TaskNumber.First);
@@ -28,7 +28,7 @@ namespace AdventOfCode.Tests.Tests
             // Arrange
             Day4 day = new Day4();
             day.FilePath = AppDomain.CurrentDomain.BaseDirectory + @"../../TestInputs/Day4SecondExample.txt";
-            int expectedResult = 3;
+            string expectedResult = "3";
 
             // Act
             var result = day.GetResult(Enums.TaskNumber.Second);

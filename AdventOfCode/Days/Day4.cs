@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode.Days
 {
@@ -11,7 +8,7 @@ namespace AdventOfCode.Days
     {
         public string FilePath = "../../Inputs/Day4.txt";
 
-        protected override int GetResultFirst()
+        protected override string GetResultFirst()
         {
             int sum = 0;
             try
@@ -26,7 +23,7 @@ namespace AdventOfCode.Days
                         sum += array.Distinct().Count() == array.Count() ? 1 : 0;
                     }
                 }
-                return sum;
+                return sum.ToString();
             }
             catch (Exception e)
             {
@@ -35,7 +32,7 @@ namespace AdventOfCode.Days
             }
         }
 
-        protected override int GetResultSecond()
+        protected override string GetResultSecond()
         {
             int sum = 0;
             try
@@ -49,7 +46,7 @@ namespace AdventOfCode.Days
                         sum += array.Distinct().Count() == array.Count() ? 1 : 0;
                     }
                 }
-                return sum;
+                return sum.ToString();
             }
             catch (Exception e)
             {
