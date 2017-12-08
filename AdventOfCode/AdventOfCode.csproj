@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Days\Day8.cs" />
     <Compile Include="Days\Day7.cs" />
     <Compile Include="Days\Day6.cs" />
     <Compile Include="Days\Day1.cs" />
@@ -70,6 +71,7 @@
     <Content Include="Inputs\Day4.txt" />
     <Content Include="Inputs\Day5.txt" />
     <Content Include="Inputs\Day7.txt" />
+    <Content Include="Inputs\Day8.txt" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

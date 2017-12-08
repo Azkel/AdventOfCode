@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\Day1Test.cs" />
+    <Compile Include="Tests\Day8Test.cs" />
     <Compile Include="Tests\Day7Test.cs" />
     <Compile Include="Tests\Day6Test.cs" />
     <Compile Include="Tests\Day4Test.cs" />
@@ -50,6 +51,7 @@
     <Content Include="TestInputs\Day2SecondExample.txt" />
     <Content Include="TestInputs\Day4FirstExample.txt" />
     <Content Include="TestInputs\Day4SecondExample.txt" />
+    <Content Include="TestInputs\Day8FirstExample.txt" />
     <Content Include="TestInputs\Day7FirstExample.txt" />
   </ItemGroup>
   <ItemGroup>
