@@ -56,6 +56,7 @@
     <Compile Include="Days\AbstractDay.cs" />
     <Compile Include="Days\Day3.cs" />
     <Compile Include="Days\Day4.cs" />
+    <Compile Include="Days\Day9.cs" />
     <Compile Include="Enums\TaskNumber.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,6 +68,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Inputs\Day9.txt" />
     <Content Include="Inputs\Day2.txt" />
     <Content Include="Inputs\Day4.txt" />
     <Content Include="Inputs\Day5.txt" />
