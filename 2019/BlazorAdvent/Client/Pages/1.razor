@@ -1,0 +1,38 @@
+﻿@page "/first"
+
+<h1>First Task</h1>
+
+<div>
+    <div>
+        <label>Input</label>
+
+        <textarea @bind="input"></textarea>
+    </div>
+    <button class="btn btn-primary" @onclick="Part1">Solve Part 1</button>
+    <button class="btn btn-primary" @onclick="Part2">Solve Part 2</button>
+
+</div>
+Result : @result.
+
+@code {
+
+    private int result = 0;
+    private string input;
+
+    private void Part1()
+    {
+        result = 0;
+        int currentVal = 0;
+        var dupa = input.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+        foreach(var value in dupa)
+        {
+            Console.WriteLine(value);
+            currentVal = (int.Parse(value) /3) - 2;
+            result += currentVal;
+        }
+    }
+    private void Part2()
+    {
+
+    }
+}
