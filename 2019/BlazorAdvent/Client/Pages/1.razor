@@ -23,16 +23,28 @@ Result : @result.
     {
         result = 0;
         int currentVal = 0;
-        var dupa = input.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
-        foreach(var value in dupa)
+        var inputList = input.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+        // TODO: Rewrite it to awesome one-line LINQ sometime in the upcoming days
+        foreach (var value in inputList)
         {
             Console.WriteLine(value);
-            currentVal = (int.Parse(value) /3) - 2;
+            currentVal = (int.Parse(value) / 3) - 2;
             result += currentVal;
         }
     }
     private void Part2()
     {
-
+        result = 0;
+        int currentVal = 0;
+        Queue<string> inputQueue = new Queue<string>(input.Split(new[] { Environment.NewLine }, StringSplitOptions.None));
+        while (inputQueue.Count != 0)
+        {
+            currentVal = (int.Parse(inputQueue.Dequeue()) / 3) - 2;
+            if (currentVal > 0)
+            {
+                result += currentVal;
+                inputQueue.Enqueue(currentVal.ToString());
+            }
+        }
     }
 }
