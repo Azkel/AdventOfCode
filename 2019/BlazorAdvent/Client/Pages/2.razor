@@ -4,9 +4,10 @@
 
 <div>
     <div>
-        <label >Input</label>
+        <label>Input</label>
 
         <textarea @bind="input"></textarea>
+        <input type="number" @bind="expectedResult" />
     </div>
     <button class="btn btn-primary" @onclick="Part1">Solve Part 1</button>
     <button class="btn btn-primary" @onclick="Part2">Solve Part 2</button>
@@ -18,11 +19,40 @@ Result : @result.
 
     private string result = string.Empty;
     private string input;
+    private int expectedResult;
+    private int[] inputList;
 
     private void Part1()
     {
-        var inputList = input.Split(',').Select(x => Convert.ToInt32(x)).ToArray();
-        // TODO: Rewrite it to awesome one-line LINQ sometime in the upcoming days
+        inputList = input.Split(',').Select(x => Convert.ToInt32(x)).ToArray();
+        Solve();
+
+
+    }
+
+    private void Part2()
+    {
+        bool found = false;
+        for(int x = 0; x < 99 && !found; x++)
+        {
+            for(int y = 0; y < 99 && !found; y++)
+            {
+                inputList = input.Split(',').Select(z => Convert.ToInt32(z)).ToArray();
+                inputList[1] = x;
+                inputList[2] = y;
+                Solve();
+                if(expectedResult == inputList[0])
+                {
+                    found = true;
+                    result = string.Format("Found value {0} by providing noun {1} and verb {2}. Result is {3}", inputList[0], x, y, (100 * x) + y);
+                }
+            }
+        }
+
+    }
+
+    private void Solve()
+    {
         bool stop = false;
         for(int i=0; i<inputList.Length && !stop; i += 4)
         {
@@ -48,7 +78,7 @@ Result : @result.
                         }
                         else
                         {
-                            Console.Write("Something went wrong with case 1!");
+                            Console.Write("Something went wrong with case 2!");
                         }
                         break;
                     }
@@ -59,18 +89,12 @@ Result : @result.
                     }
                 default:
                     {
-                    Console.WriteLine("Unexpected character!");
-                    break;
+                        Console.WriteLine("Unexpected character!");
+                        break;
                     }
             }
             result = String.Join(",", inputList.Select(p=>p.ToString()).ToArray());
-        
+
         }
-
-        
-    }
-
-    private void Part2()
-    {
     }
 }
