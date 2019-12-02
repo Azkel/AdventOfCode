@@ -1,0 +1,76 @@
+﻿@page "/second"
+
+<h1>First Task</h1>
+
+<div>
+    <div>
+        <label >Input</label>
+
+        <textarea @bind="input"></textarea>
+    </div>
+    <button class="btn btn-primary" @onclick="Part1">Solve Part 1</button>
+    <button class="btn btn-primary" @onclick="Part2">Solve Part 2</button>
+
+</div>
+Result : @result.
+
+@code {
+
+    private string result = string.Empty;
+    private string input;
+
+    private void Part1()
+    {
+        var inputList = input.Split(',').Select(x => Convert.ToInt32(x)).ToArray();
+        // TODO: Rewrite it to awesome one-line LINQ sometime in the upcoming days
+        bool stop = false;
+        for(int i=0; i<inputList.Length && !stop; i += 4)
+        {
+            switch (inputList[i])
+            {
+                case 1:
+                    {
+                        if (inputList[i + 1] < inputList.Length && inputList[i + 2] < inputList.Length && inputList[i + 3] < inputList.Length)
+                        {
+                            inputList[inputList[i + 3]] = inputList[inputList[i + 1]] + inputList[inputList[i + 2]];
+                        }
+                        else
+                        {
+                            Console.Write("Something went wrong with case 1!");
+                        }
+                        break;
+                    }
+                case 2:
+                    {
+                        if (inputList[i + 1] < inputList.Length && inputList[i + 2] < inputList.Length && inputList[i + 3] < inputList.Length)
+                        {
+                            inputList[inputList[i + 3]] = inputList[inputList[i + 1]] * inputList[inputList[i + 2]];
+                        }
+                        else
+                        {
+                            Console.Write("Something went wrong with case 1!");
+                        }
+                        break;
+                    }
+                case 99:
+                    {
+                        stop = true;
+                        break;
+                    }
+                default:
+                    {
+                    Console.WriteLine("Unexpected character!");
+                    break;
+                    }
+            }
+            result = String.Join(",", inputList.Select(p=>p.ToString()).ToArray());
+        
+        }
+
+        
+    }
+
+    private void Part2()
+    {
+    }
+}
