@@ -1,0 +1,123 @@
+﻿@page "/third"
+
+<h1>First Task</h1>
+
+<div>
+    <div>
+        <label>Input</label>
+
+        <textarea @bind="input1"></textarea>
+        <textarea @bind="input2"></textarea>
+    </div>
+    <button class="btn btn-primary" @onclick="Part1">Solve Part 1</button>
+    <button class="btn btn-primary" @onclick="Part2">Solve Part 2</button>
+
+</div>
+Result : @result.
+
+@code {
+
+    private string result = string.Empty;
+    private string input1;
+    private string input2;
+    private Dictionary<Tuple<int, int>, int> results;
+
+    private void Part1()
+    {
+        results = new Dictionary<Tuple<int, int>, int>();
+        Solve(input1);
+        Solve(input2);
+        
+        result = results.Where(x => x.Value > 1).Select(x => Math.Abs(x.Key.Item1) + Math.Abs(x.Key.Item2)).OrderByDescending(x => x).Last().ToString();
+    }
+
+    private void Part2()
+    {
+    }
+
+    private void Solve(string input)
+    {
+        var inputCollection = input.Split(',');
+        int xPosition = 0;
+        int yPosition = 0;
+        Tuple<int, int> currentTuple;
+        foreach (var value in inputCollection)
+        {
+            Console.WriteLine(value);
+            var movement = int.Parse(value.Substring(1));
+            switch (value.First())
+            {
+                case 'U':
+                    {
+                        for (int i = 0; i < movement; i++)
+                        {
+                            xPosition++;
+                            currentTuple = new Tuple<int, int>(xPosition, yPosition);
+                            if (results.ContainsKey(currentTuple))
+                            {
+                                results[currentTuple] += 1;
+                            }
+                            else
+                            {
+                                results.Add(currentTuple, 1);
+                            }
+                        }
+                        break;
+                    }
+                case 'D':
+                    {
+                        for (int i = movement; i > 0; i--)
+                        {
+                            xPosition--;
+                            currentTuple = new Tuple<int, int>(xPosition, yPosition);
+                            if (results.ContainsKey(currentTuple))
+                            {
+                                results[currentTuple] += 1;
+                            }
+                            else
+                            {
+                                results.Add(currentTuple, 1);
+                            }
+                        }
+                        break;
+                    }
+                case 'L':
+                    {
+                        for (int i = movement; i > 0; i--)
+                        {
+                            yPosition--;
+                            currentTuple = new Tuple<int, int>(xPosition, yPosition);
+                            if (results.ContainsKey(currentTuple))
+                            {
+                                results[currentTuple] += 1;
+                            }
+                            else
+                            {
+                                results.Add(currentTuple, 1);
+                            }
+                        }
+                        break;
+                    }
+                case 'R':
+                    {
+                        for (int i = 0; i < movement; i++)
+                        {
+                            yPosition++;
+                            currentTuple = new Tuple<int, int>(xPosition, yPosition);
+                            if (results.ContainsKey(currentTuple))
+                            {
+                                results[currentTuple] += 1;
+                            }
+                            else
+                            {
+                                results.Add(currentTuple, 1);
+                            }
+                        }
+                        break;
+                    }
+            }
+        }
+    }
+
+
+}
