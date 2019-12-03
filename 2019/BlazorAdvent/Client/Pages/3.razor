@@ -1,5 +1,5 @@
 ﻿@page "/third"
-
+@using BlazorAdvent.Shared
 <h1>First Task</h1>
 
 <div>
@@ -20,27 +20,34 @@ Result : @result.
     private string result = string.Empty;
     private string input1;
     private string input2;
-    private Dictionary<Tuple<int, int>, int> results;
+    private Dictionary<Tuple<int, int>, ThirdDayClass> results;
 
     private void Part1()
     {
-        results = new Dictionary<Tuple<int, int>, int>();
-        Solve(input1);
-        Solve(input2);
-        
-        result = results.Where(x => x.Value > 1).Select(x => Math.Abs(x.Key.Item1) + Math.Abs(x.Key.Item2)).OrderByDescending(x => x).Last().ToString();
+        results = new Dictionary<Tuple<int, int>, ThirdDayClass>();
+        Solve(input1, 1);
+        Solve(input2, 2);
+
+        result = results.Where(x => x.Value.AmountOfCrossings > 1).Select(x => Math.Abs(x.Key.Item1) + Math.Abs(x.Key.Item2)).OrderByDescending(x => x).Last().ToString();
     }
 
     private void Part2()
     {
+        results = new Dictionary<Tuple<int, int>, ThirdDayClass>();
+        Solve(input1, 1);
+        Solve(input2, 2);
+        result = results.Where(x => x.Value.AmountOfCrossings > 1 && x.Value.FirstInputStep != -1 && x.Value.SecondInputStep != -1)
+            .Select(x => x.Value.FirstInputStep + x.Value.SecondInputStep).OrderByDescending(x => x).Last().ToString();
+
     }
 
-    private void Solve(string input)
+    private void Solve(string input, int iteration)
     {
         var inputCollection = input.Split(',');
         int xPosition = 0;
         int yPosition = 0;
         Tuple<int, int> currentTuple;
+        int step = 0;
         foreach (var value in inputCollection)
         {
             Console.WriteLine(value);
@@ -52,14 +59,23 @@ Result : @result.
                         for (int i = 0; i < movement; i++)
                         {
                             xPosition++;
+                            step++;
                             currentTuple = new Tuple<int, int>(xPosition, yPosition);
                             if (results.ContainsKey(currentTuple))
                             {
-                                results[currentTuple] += 1;
+                                results[currentTuple].AmountOfCrossings += 1;
+                                if (iteration == 2 && results[currentTuple].SecondInputStep == -1)
+                                {
+                                    results[currentTuple].SecondInputStep = step;
+                                }
                             }
                             else
                             {
-                                results.Add(currentTuple, 1);
+                                results.Add(currentTuple, new ThirdDayClass()
+                                {
+                                    FirstInputStep = iteration == 1 ? step : -1,
+                                    SecondInputStep = iteration == 2 ? step : -1
+                                }); ;
                             }
                         }
                         break;
@@ -69,14 +85,23 @@ Result : @result.
                         for (int i = movement; i > 0; i--)
                         {
                             xPosition--;
+                            step++;
                             currentTuple = new Tuple<int, int>(xPosition, yPosition);
                             if (results.ContainsKey(currentTuple))
                             {
-                                results[currentTuple] += 1;
+                                results[currentTuple].AmountOfCrossings += 1;
+                                if (iteration == 2 && results[currentTuple].SecondInputStep == -1)
+                                {
+                                    results[currentTuple].SecondInputStep = step;
+                                }
                             }
                             else
                             {
-                                results.Add(currentTuple, 1);
+                                results.Add(currentTuple, new ThirdDayClass()
+                                {
+                                    FirstInputStep = iteration == 1 ? step : -1,
+                                    SecondInputStep = iteration == 2 ? step : -1
+                                }); ;
                             }
                         }
                         break;
@@ -86,14 +111,23 @@ Result : @result.
                         for (int i = movement; i > 0; i--)
                         {
                             yPosition--;
+                            step++;
                             currentTuple = new Tuple<int, int>(xPosition, yPosition);
                             if (results.ContainsKey(currentTuple))
                             {
-                                results[currentTuple] += 1;
+                                results[currentTuple].AmountOfCrossings += 1;
+                                if (iteration == 2 && results[currentTuple].SecondInputStep == -1)
+                                {
+                                    results[currentTuple].SecondInputStep = step;
+                                }
                             }
                             else
                             {
-                                results.Add(currentTuple, 1);
+                                results.Add(currentTuple, new ThirdDayClass()
+                                {
+                                    FirstInputStep = iteration == 1 ? step : -1,
+                                    SecondInputStep = iteration == 2 ? step : -1
+                                }); ;
                             }
                         }
                         break;
@@ -103,14 +137,23 @@ Result : @result.
                         for (int i = 0; i < movement; i++)
                         {
                             yPosition++;
+                            step++;
                             currentTuple = new Tuple<int, int>(xPosition, yPosition);
                             if (results.ContainsKey(currentTuple))
                             {
-                                results[currentTuple] += 1;
+                                results[currentTuple].AmountOfCrossings += 1;
+                                if (iteration == 2 && results[currentTuple].SecondInputStep == -1)
+                                {
+                                    results[currentTuple].SecondInputStep = step;
+                                }
                             }
                             else
                             {
-                                results.Add(currentTuple, 1);
+                                results.Add(currentTuple, new ThirdDayClass()
+                                {
+                                    FirstInputStep = iteration == 1 ? step : -1,
+                                    SecondInputStep = iteration == 2 ? step : -1
+                                }); ;
                             }
                         }
                         break;
